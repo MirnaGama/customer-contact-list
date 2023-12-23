@@ -1,8 +1,7 @@
-<div class="container">
-<div class="customerContactForm">
-    <form [formGroup]="customerContactForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="customerContactForm" (ngSubmit)="onSubmit()" class="row g-3">
+    <div class="col-md-6">
       <div class="form-group">
-        <label>Full Name</label>
+        <label>Nome Completo</label>
         <input
           type="text"
           formControlName="fullname"
@@ -10,29 +9,62 @@
           [ngClass]="{ 'is-invalid': submitted && f['fullname'].errors }"
         />
         <div *ngIf="submitted && f['fullname'].errors" class="invalid-feedback">
-          <div *ngIf="f['fullname'].errors['required']">Full name is required</div>
+          <div *ngIf="f['fullname'].errors['required']">Preencha o nome completo</div>
           <div *ngIf="f['fullname'].errors['minlength']">
-            Full name must be at least 10 characters
+            Nome completo deve ter pelo menos 10 caracteres
           </div>
         </div>
       </div>
-  
-      <div class="form-row">
+    </div>    
+    
+    <div class="col-md-3">
       <div class="form-group">
-        <label>Address</label>
-        <input
-          type="text"
-          formControlName="address"
+        <label>CEP</label>
+        <input #box (keyup)="onGetAddress(box.value)"
+          type="number"
+          formControlName="cep"
           class="form-control"
-          [ngClass]="{ 'is-invalid': submitted && f['address'].errors }"
+          [ngClass]="{ 'is-invalid': submitted && f['cep'].errors }"
         />
-        <div *ngIf="submitted && f['address'].errors" class="invalid-feedback">
-          <div *ngIf="f['address'].errors['required']">Address is required</div>
+        <div *ngIf="submitted && f['cep'].errors" class="invalid-feedback">
+          <div *ngIf="f['cep'].errors['required']">Preencha o CEP</div>
         </div>
       </div>
+    </div>
 
-      <div class="form-group ml-4">
-        <label>Neighborhood</label>
+    <div class="col-md-6">
+    <div class="form-group">
+      <label>Endereço</label>
+      <input
+        type="text"
+        formControlName="street"
+        class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && f['street'].errors }"
+      />
+      <div *ngIf="submitted && f['street'].errors" class="invalid-feedback">
+        <div *ngIf="f['street'].errors['required']">Preencha o endereço</div>
+      </div>
+    </div>
+    </div>
+    <div class="col-sm-1">
+        <div class="form-group">
+          <label>Número</label>
+          <input
+            type="number"
+            formControlName="houseNumber"
+            class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f['houseNumber'].errors }"
+          />
+          <div *ngIf="submitted && f['houseNumber'].errors" class="invalid-feedback">
+            <div *ngIf="f['houseNumber'].errors['required']">Preencha o número</div>
+          </div>
+
+        </div>
+    </div>
+
+    <div class="col-md-2">
+      <div class="form-group">
+        <label>Bairro</label>
         <input
           type="text"
           formControlName="neighborhood"
@@ -40,21 +72,66 @@
           [ngClass]="{ 'is-invalid': submitted && f['neighborhood'].errors }"
         />
         <div *ngIf="submitted && f['neighborhood'].errors" class="invalid-feedback">
-          <div *ngIf="f['neighborhood'].errors['required']">Neighborhood is required</div>
+          <div *ngIf="f['neighborhood'].errors['required']">Preencha o bairro</div>
         </div>
+
       </div>
-      </div>
-  
-      <div class="form-group">
-        <button type="submit" class="btn btn-primary">Register</button>
-        <button
-          type="button"
-          (click)="onReset()"
-          class="btn btn-warning float-right"
-        >
-          Reset
-        </button>
-      </div>
-    </form>
   </div>
-</div>
+
+  <div class="col-md-2">
+    <div class="form-group">
+      <label>Cidade</label>
+      <input
+        type="text"
+        formControlName="city"
+        class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && f['city'].errors }"
+      />
+      <div *ngIf="submitted && f['city'].errors" class="invalid-feedback">
+        <div *ngIf="f['city'].errors['required']">Preencha a cidade</div>
+      </div>
+
+   </div>
+
+
+    </div>
+
+    <div class="col-md-8">
+      <fieldset class="form-group">
+        <div class="row">
+          <legend class="col-form-label col-sm-2 pt-0">Telefones:</legend>
+          <div class="col-sm-10" formArrayName="telephones">
+            <div class="input-group" *ngFor="let telephone of telephones.controls; let index = index" [formGroupName]="index">
+              <input type="number" formControlName="number"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && telephones.controls[index].invalid }"
+              >  
+              <div class="input-group-append">
+                <button class="btn btn-outline-danger" type="button" *ngIf="index > 0" (click)="removeTelephone(index)">Excluir</button>
+              </div>
+
+              <div *ngIf="submitted && telephones.controls[index].invalid && index == 0" class="invalid-feedback">
+                <div>Preencha pelo menos um telephone</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+
+      <button class="btn-secondary mt-2 mb-3" type="button" (click)="addNewTelephone()">
+        <i class="bi bi-plus"></i> Adicionar novo telefone
+      </button>
+
+    <div class="form-group col-md-8">
+      <button type="submit" class="btn btn-primary">Registrar</button>
+      <button
+        type="button"
+        (click)="onReset()"
+        class="btn btn-warning float-right"
+      >
+        Limpar Campos
+      </button>
+    </div>
+
+    </div>
+  </form>

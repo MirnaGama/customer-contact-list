@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
-import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AddressResponse } from '../customer-contact/core/interfaces/address-response.interface';
+import { AddressService } from '../customer-contact/core/services/address.service';
+import { Telephone } from '../customer-contact/core/interfaces/customer-contact.interface';
 
 @Component({
   selector: 'app-customer-contact-form',
@@ -8,20 +11,13 @@ import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, Valida
 })
 export class CustomerContactFormComponent {
 
-  customerContactForm: FormGroup = new FormGroup({
-    fullname: new FormControl(''),
-    address: new FormControl(''),
-    neighborhood: new FormControl(''),
-    telephones: new FormArray([
-      new FormGroup({
-        numbers: new FormControl('')
-      })
-    ])
-  });
+  customerContactForm!: FormGroup;
+
+  customerAddress!: AddressResponse;
 
   submitted = false;
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder, private addressService: AddressService) {}
 
   get f(): { [key: string]: AbstractControl } {
     return this.customerContactForm.controls;
@@ -35,12 +31,16 @@ export class CustomerContactFormComponent {
     this.customerContactForm = this.formBuilder.group(
       {
         fullname: ['', Validators.compose([Validators.required, Validators.minLength(10)])],
-        address: ['', [Validators.required]],
+        cep: ['',  Validators.compose([Validators.required, Validators.minLength(8)])],
+        street: ['', [Validators.required]],
+        houseNumber: ['', [Validators.required]],
+        city: ['', [Validators.required]],
         neighborhood: ['', [Validators.required]],
-        telephones: [{numbers: new FormControl('')}, Validators.required],
-      }
-    );
-  }
+        state: ['', [Validators.required]],
+        telephones: this.formBuilder.array([], Validators.required),
+  });
+
+}
 
   onSubmit(): void {
     this.submitted = true;
@@ -50,11 +50,36 @@ export class CustomerContactFormComponent {
     }
 
     console.log(JSON.stringify(this.customerContactForm.value, null, 2));
+
   }
 
   onReset(): void {
     this.submitted = false;
     this.customerContactForm.reset();
   }
-  
+
+  onGetAddress(cep: string) {
+
+    if (cep.length == 8) {
+      this.addressService.getAddress(cep).subscribe((addressResponse: AddressResponse) => {
+        this.customerContactForm.patchValue({street: addressResponse.street, city: addressResponse.city, neighborhood:addressResponse.neighborhood, state: addressResponse.state});
+      }); 
+  }
+}
+
+createTelephoneFormGroup(telephone: Telephone = { number: '' }) {
+  return this.formBuilder.group({
+    number: [telephone.number, Validators.required]
+  })
+}
+
+addNewTelephone() {
+  this.telephones.push(this.createTelephoneFormGroup());
+}
+
+removeTelephone(index: number) {
+  this.telephones.removeAt(index);
+}
+
+
 }

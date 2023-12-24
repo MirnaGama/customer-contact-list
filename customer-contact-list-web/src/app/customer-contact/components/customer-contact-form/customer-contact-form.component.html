@@ -31,7 +31,7 @@
         />
         <div *ngIf="submitted && f['cep'].errors" class="invalid-feedback">
           <div *ngIf="f['cep'].errors['required']">Preencha o CEP</div>
-          <div *ngIf="f['cep'].errors['minlength'] || f['cep'].errors['maxlength']">O CEP deve conter somente 8 caracteres</div>
+          <div *ngIf="f['cep'].errors['minlength'] || f['cep'].errors['maxlength']">O CEP deve conter 8 caracteres</div>
         </div>
       </div>
     </div>

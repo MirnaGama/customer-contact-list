@@ -32,7 +32,7 @@ export class CustomerContactFormComponent {
     this.customerContactForm = this.formBuilder.group(
       {
         fullname: ['', Validators.compose([Validators.required, Validators.minLength(10), Validators.pattern("/^[^a-zA-Z]*$/")])],
-        cep: ['', Validators.compose([Validators.required, Validators.minLength(8)])],
+        cep: ['', Validators.compose([Validators.required, Validators.minLength(8), Validators.maxLength(8)])],
         street: ['', [Validators.required]],
         houseNumber: ['', [Validators.required]],
         city: ['', [Validators.required]],
@@ -74,6 +74,8 @@ export class CustomerContactFormComponent {
   }
 
   onGetAddress(cep: string) {
+
+    this.customerContactForm.patchValue({cep: cep.replace(/\D+/g, '') });
 
     if (cep.length == 8) {
       this.addressService.getAddress(cep).subscribe((addressResponse: AddressResponse) => {

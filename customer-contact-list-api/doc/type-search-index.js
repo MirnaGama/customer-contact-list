@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"com.mirna.customercontactlistapi.domain","l":"Customer"}];updateSearchResults();

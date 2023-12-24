@@ -1,4 +1,5 @@
-export interface CustomerContact {
+export interface Customer {
+    id?: string;
     fullname: string;
     street: string;
     houseNumber: number;
@@ -6,10 +7,11 @@ export interface CustomerContact {
     neighborhood: string;
     city: string;
     state: string;
-    telephones: Telephone[]
 }
 
 export interface Telephone {
+    id?: string;
     number: string;
+    customerId?: string;
 }
 

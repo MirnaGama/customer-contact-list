@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { AbstractControl, FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AddressResponse } from '../customer-contact/core/interfaces/address-response.interface';
-import { AddressService } from '../customer-contact/core/services/address.service';
-import { Telephone } from '../customer-contact/core/interfaces/customer-contact.interface';
+import { AddressResponse } from '../../core/interfaces/address-response.interface';
+import { AddressService } from '../../core/services/address.service';
+import { Telephone } from '../../core/interfaces/customer-contact.interface';
 
 @Component({
   selector: 'app-customer-contact-form',

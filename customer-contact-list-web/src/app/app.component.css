@@ -1,4 +1,9 @@
-.app-title, .app-navigation{
+.app-main-banner {
     display: flex;
     justify-content: center;
+    background-color: rgb(33, 155, 172);
+}
+
+.app-title {
+    color:white;
 }

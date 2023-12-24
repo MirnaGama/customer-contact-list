@@ -48,6 +48,8 @@ export class CustomerContactFormComponent {
   onSubmit(): void {
     this.submitted = true;
 
+    this.customerContactForm.patchValue({fullname: this.customerContactForm.value.fullname.trim()})
+
     if (this.customerContactForm.invalid) {
       return;
     }

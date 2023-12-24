@@ -21,7 +21,7 @@
       <div class="form-group">
         <label>CEP</label>
         <input #box (keyup)="onGetAddress(box.value)"
-          type="number"
+          type="number"  min="0"
           formControlName="cep"
           class="form-control"
           [ngClass]="{ 'is-invalid': submitted && f['cep'].errors }"
@@ -50,7 +50,7 @@
         <div class="form-group">
           <label>Número</label>
           <input
-            type="number"
+            type="number"  min="0"
             formControlName="houseNumber"
             class="form-control"
             [ngClass]="{ 'is-invalid': submitted && f['houseNumber'].errors }"
@@ -103,7 +103,7 @@
           <div class="col-sm-10" formArrayName="telephones">
             <div class="input-group" *ngFor="let telephone of telephones.controls; let index = index" [formGroupName]="index">
               <input type="number" formControlName="number"
-              class="form-control"
+              class="form-control"  min="0"
               [ngClass]="{ 'is-invalid': submitted && telephones.controls[index].invalid }"
               >  
               <div class="input-group-append">

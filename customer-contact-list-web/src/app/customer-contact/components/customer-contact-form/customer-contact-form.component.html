@@ -17,7 +17,7 @@
       </div>
     </div>    
     
-    <div class="col-md-3">
+    <div class="col-md-6">
       <div class="form-group">
         <label>CEP</label>
         <input #box (keyup)="onGetAddress(box.value)"
@@ -46,7 +46,7 @@
       </div>
     </div>
     </div>
-    <div class="col-sm-1">
+    <div class="col-md-1">
         <div class="form-group">
           <label>Número</label>
           <input
@@ -62,7 +62,7 @@
         </div>
     </div>
 
-    <div class="col-md-2">
+    <div class="col-md-3">
       <div class="form-group">
         <label>Bairro</label>
         <input
@@ -94,9 +94,9 @@
    </div>
 
 
-    </div>
+  </div>
 
-    <div class="col-md-8">
+    <div class="col-md-12">
       <fieldset class="form-group">
         <div class="row">
           <legend class="col-form-label col-sm-2 pt-0">Telefones:</legend>
@@ -110,6 +110,12 @@
                 <button class="btn btn-outline-danger" type="button" *ngIf="index > 0" (click)="removeTelephone(index)">Excluir</button>
               </div>
 
+              <div class="input-group-append">
+              <button class="btn-secondary" type="button" *ngIf="index == 0" (click)="addNewTelephone()">
+                <i class="bi bi-plus"></i>
+              </button>
+            </div>
+
               <div *ngIf="submitted && telephones.controls[index].invalid && index == 0" class="invalid-feedback">
                 <div>Preencha pelo menos um telephone</div>
               </div>
@@ -118,20 +124,11 @@
         </div>
       </fieldset>
 
-      <button class="btn-secondary mt-2 mb-3" type="button" (click)="addNewTelephone()">
-        <i class="bi bi-plus"></i> Adicionar novo telefone
-      </button>
+    </div>
 
-    <div class="form-group col-md-8">
+    <div class="btn-group col-md-12" role="group">
       <button type="submit" class="btn btn-primary">Registrar</button>
-      <button
-        type="button"
-        (click)="onReset()"
-        class="btn btn-warning float-right"
-      >
-        Limpar Campos
-      </button>
+      <button type="button" (click)="onReset()" class="btn btn-warning">Limpar Campos</button>
     </div>
 
-    </div>
   </form>

@@ -13,6 +13,9 @@
           <div *ngIf="f['fullname'].errors['minlength']">
             Nome completo deve ter pelo menos 10 caracteres
           </div>
+          <div *ngIf="f['fullname'].errors['pattern']">
+            Nome completo deve ter apenas letras
+          </div>
         </div>
       </div>
     </div>    

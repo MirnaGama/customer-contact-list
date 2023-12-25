@@ -16,7 +16,7 @@ import jakarta.validation.constraints.NotNull;
 * @author Mirna Gama
 * @version 1.0
 */
-@Entity(name="customers")
+@Entity(name="telephones")
 public class Telephone {
 
 	@Id

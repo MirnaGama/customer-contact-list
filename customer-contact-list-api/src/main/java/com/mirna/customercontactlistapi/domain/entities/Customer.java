@@ -1,4 +1,4 @@
-package com.mirna.customercontactlistapi.domain;
+package com.mirna.customercontactlistapi.domain.entities;
 
 import java.util.List;
 
@@ -20,28 +20,28 @@ public class Customer {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	@Column(name = "cep")
 	private String cep;
-	
+
 	@Column(name = "city")
 	private String city;
-	
+
 	@Column(name = "fullname")
 	private String fullname;
-	
+
 	@Column(name = "house_number")
 	private Long houseNumber;
-	
+
 	@Column(name = "neighborhood")
 	private String neighborhood;
-	
+
 	@Column(name = "state")
 	private String state;
-	
+
 	@Column(name = "street")
 	private String street;
-	
+
 	/** 
 	 * Represents the customer’s telephones.
 	*/

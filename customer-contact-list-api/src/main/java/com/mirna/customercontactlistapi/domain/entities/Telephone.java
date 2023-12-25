@@ -7,6 +7,9 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 
 /**
 * 
@@ -20,13 +23,16 @@ public class Telephone {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	@NotEmpty(message = "number cannot be empty")
 	@Column(name = "number")
 	private String number;
 	
 	/** 
 	 * Represents the customer related to this telephone.
 	*/
+	@NotNull(message="customer cannot be null")
 	@ManyToOne
+	@Valid
 	@JoinColumn(name = "customer_id")
 	private Customer customer;
 
@@ -56,7 +62,7 @@ public class Telephone {
 
 	/**
 	 * Sets the telephone number
-	 * @param number The telephone number. Must be unique and not null.
+	 * @param number The telephone number. Must be unique and not empty.
 	 */
 	public void setNumber(String number) {
 		this.number = number;

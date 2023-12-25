@@ -1,4 +1,4 @@
-package com.mirna.customercontactlistapi.domain;
+package com.mirna.customercontactlistapi.domain.entities;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

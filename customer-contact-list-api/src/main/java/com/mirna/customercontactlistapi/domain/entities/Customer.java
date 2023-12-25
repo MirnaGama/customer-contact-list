@@ -8,6 +8,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 
 /**
 * 
@@ -21,24 +23,31 @@ public class Customer {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
+	@NotEmpty(message = "cep cannot be empty")
 	@Column(name = "cep")
 	private String cep;
 
+	@NotEmpty(message = "city cannot be empty")
 	@Column(name = "city")
 	private String city;
 
-	@Column(name = "fullname")
+	@NotEmpty(message = "fullname cannot be empty")
+	@Column(name = "full_name")
 	private String fullname;
 
+	@NotEmpty(message = "houseNumber cannot be empty")
 	@Column(name = "house_number")
 	private Long houseNumber;
 
+	@NotEmpty(message = "neighborhood cannot be empty")
 	@Column(name = "neighborhood")
 	private String neighborhood;
 
+	@NotEmpty(message = "state cannot be empty")
 	@Column(name = "state")
 	private String state;
 
+	@NotEmpty(message = "street cannot be empty")
 	@Column(name = "street")
 	private String street;
 
@@ -74,7 +83,7 @@ public class Customer {
 
 	/**
 	 * Sets the cep
-	 * @param cep The customer's street postal code. Must not be null.
+	 * @param cep The customer's street postal code. Must not be empty.
 	 */
 	public void setCep(String cep) {
 		this.cep = cep;
@@ -90,7 +99,7 @@ public class Customer {
 
 	/**
 	 * Sets the city
-	 * @param city The city where the customer lives. Must not be null.
+	 * @param city The city where the customer lives. Must not be empty.
 	 */
 	public void setCity(String city) {
 		this.city = city;
@@ -106,7 +115,7 @@ public class Customer {
 
 	/**
 	 * Sets the full name
-	 * @param fullname The customer's first and last name. Must not be null.
+	 * @param fullname The customer's first and last name. Must not be empty.
 	 */
 	public void setFullname(String fullname) {
 		this.fullname = fullname;
@@ -122,7 +131,7 @@ public class Customer {
 
 	/**
 	 * Sets the house number
-	 * @param houseNumber The number of the house where the customer lives. Must not be null.
+	 * @param houseNumber The number of the house where the customer lives. Must not be empty.
 	 */
 	public void setHouseNumber(Long houseNumber) {
 		this.houseNumber = houseNumber;
@@ -138,7 +147,7 @@ public class Customer {
 
 	/**
 	 * Sets the neighborhood
-	 * @param neighborhood The neighborhood where the customer lives. Must not be null.
+	 * @param neighborhood The neighborhood where the customer lives. Must not be empty.
 	 */
 	public void setNeighborhood(String neighborhood) {
 		this.neighborhood = neighborhood;
@@ -154,7 +163,7 @@ public class Customer {
 
 	/**
 	 * Sets the state
-	 * @param state The state where the customer lives. Must not be null.
+	 * @param state The state where the customer lives. Must not be empty.
 	 */
 	public void setState(String state) {
 		this.state = state;
@@ -170,7 +179,7 @@ public class Customer {
 
 	/**
 	 * Sets the street
-	 * @param street The street where the customer lives. Must not be null.
+	 * @param street The street where the customer lives. Must not be empty.
 	 */
 	public void setStreet(String street) {
 		this.street = street;

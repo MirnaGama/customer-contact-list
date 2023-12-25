@@ -1,5 +1,7 @@
 package com.mirna.customercontactlistapi.domain.dto;
 
+import jakarta.validation.constraints.NotEmpty;
+
 /**
 * 
 * @author Mirna Gama
@@ -7,12 +9,25 @@ package com.mirna.customercontactlistapi.domain.dto;
 */
 public class CustomerDTO {
 
+	@NotEmpty(message = "cep cannot be empty")
 	private String cep;
+	
+	@NotEmpty(message = "city cannot be empty")
 	private String city;
+	
+	@NotEmpty(message = "fullname cannot be empty")
 	private String fullname;
+	
+	@NotEmpty(message = "houseNumber cannot be empty")
 	private Long houseNumber;
+	
+	@NotEmpty(message = "neighborhood cannot be empty")
     private String neighborhood;
+	
+	@NotEmpty(message = "state cannot be empty")
     private String state;
+	
+	@NotEmpty(message = "street cannot be empty")
     private String street;
     
 	public String getCep() {

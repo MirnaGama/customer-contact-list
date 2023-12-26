@@ -14,7 +14,8 @@ import com.mirna.customercontactlistapi.domain.services.CustomerService;
 import jakarta.validation.Valid;
 
 /**
- * 
+ * A Spring REST controller for managing customers.
+ *
  * @author Mirna Gama
  * @version 1.0
  */
@@ -25,6 +26,15 @@ public class CustomerController {
 	@Autowired
 	private CustomerService customerService;
 	
+	/*
+	 * Post method to create a new Customer object based on the provided DTO.
+	 *
+	 * @param customerDTO The data transfer object containing data for Customer
+	 * entity.
+	 * 
+	 * @return A response entity containing the saved customer if successful, or
+	 * a 400-level error if there is a validation error
+	 */
 	@RequestMapping(method = RequestMethod.POST)
 	public ResponseEntity<Object> addCustomer(@RequestBody @Valid CustomerDTO customerDTO) {
 		

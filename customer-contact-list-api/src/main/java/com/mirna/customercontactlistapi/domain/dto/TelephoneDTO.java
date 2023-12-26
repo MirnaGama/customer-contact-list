@@ -9,6 +9,7 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 
 /**
+* This data transfer object is used to transfer data that will be saved in a Telephone entity
 * 
 * @author Mirna Gama
 * @version 1.0
@@ -40,7 +41,7 @@ public class TelephoneDTO {
 	
 	/**
 	 *  Returns the telephone id
-	 * @return A UUID representing the customer id. Must not be null.
+	 * @return UUID representing the customer id. Must not be null.
 	 */
 	public UUID getCustomerId() {
 		return customerId;

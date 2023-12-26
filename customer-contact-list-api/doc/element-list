@@ -6,8 +6,12 @@ com.mirna.customercontactlistapi.application.usecase.telephone
 com.mirna.customercontactlistapi.domain.dto
 com.mirna.customercontactlistapi.domain.entities
 com.mirna.customercontactlistapi.domain.entities.validation
+com.mirna.customercontactlistapi.domain.exceptions
 com.mirna.customercontactlistapi.domain.mappers
+com.mirna.customercontactlistapi.domain.repositories
 com.mirna.customercontactlistapi.domain.services
-com.mirna.customercontactlistapi.exceptions
 com.mirna.customercontactlistapi.infra.handlers.validation
-com.mirna.customercontactlistapi.repositories
+com.mirna.customercontactlistapi.unit.application.controllers
+com.mirna.customercontactlistapi.unit.application.services
+com.mirna.customercontactlistapi.unit.application.usecase.customer
+com.mirna.customercontactlistapi.unit.application.usecase.telephone

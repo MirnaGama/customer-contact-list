@@ -72,7 +72,7 @@ public class CustomerServiceImpl implements CustomerService {
 	 * @param id The ID of the customer to be found.
 	 * @return the customer if it exists in the database, or throws an exception if
 	 *         it is not found.
-	 * @throws EntityNotFoundException if the customer does not exist in the
+	 * @throws com.mirna.customercontactlistapi.domain.exceptions.EntityNotPresentException if the customer does not exist in the
 	 *                                 database.
 	 */
 	@Override

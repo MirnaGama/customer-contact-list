@@ -38,7 +38,7 @@ public class TelephoneServiceImpl implements TelephoneService {
 	 *                     entity.
 	 * @return The saved telephone if successful, or throw an exception if customer
 	 *         id is not valid
-	 * @throws EntityNotFoundException if the related customer does not exist in the
+	 * @throws com.mirna.customercontactlistapi.domain.exceptions.EntityNotPresentException if the related customer does not exist in the
 	 *                                 database.
 	 */
 	@Override

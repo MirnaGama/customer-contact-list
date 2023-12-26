@@ -11,7 +11,10 @@ import com.mirna.customercontactlistapi.domain.services.TelephoneService;
 import com.mirna.customercontactlistapi.exceptions.EntityNotPresentException;
 
 /**
- * 
+ * This class is an implementation of the TelephoneService interface.
+ *
+ * This class provides methods to perform operations on telephones
+ *
  * @author Mirna Gama
  * @version 1.0
  */
@@ -23,17 +26,32 @@ public class TelephoneServiceImpl implements TelephoneService {
 
 	@Autowired
 	private TelephoneMapper telephoneMapper;
-	
+
+	/**
+	 * Adds a new telephone to the database.
+	 *
+	 * @param telephoneDTO A data transfer object containing the data for Telephone
+	 *                     entity.
+	 * @return The saved telephone if successful, or throw an exception if customer
+	 *         id is not valid
+	 * @throws EntityNotFoundException if the related customer does not exist in the
+	 *                                 database.
+	 */
 	@Override
 	public Telephone addTelephone(TelephoneDTO telephoneDTO) throws EntityNotPresentException {
 		Telephone telephone = this.telephoneMapper.toTelephoneEntity(telephoneDTO);
 		return addTelephone.execute(telephone);
 	}
 
+	/**
+	 * Adds a new telephone to the database.
+	 *
+	 * @param telephone a Telephone entity representing the new telephone record.
+	 * @return The saved telephone if successful, or null if there is an error.
+	 */
 	@Override
 	public Telephone addTelephone(Telephone telephone) {
 		return addTelephone.execute(telephone);
 	}
-	
-	
+
 }

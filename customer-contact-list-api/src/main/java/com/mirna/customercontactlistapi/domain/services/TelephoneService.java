@@ -34,5 +34,10 @@ public interface TelephoneService {
 	 * @return The saved telephone if successful, or null if there is an error.
 	 */
 	public Telephone addTelephone(Telephone telephone);
-
+	
+	/**
+	 * Deletes all telephones stored in the repository
+	 * 
+	 */
+    public void deleteAllTelephones();
 }

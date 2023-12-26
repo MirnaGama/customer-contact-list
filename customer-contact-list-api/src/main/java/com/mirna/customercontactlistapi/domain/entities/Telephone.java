@@ -1,9 +1,12 @@
 package com.mirna.customercontactlistapi.domain.entities;
 
+import java.util.UUID;
+
+import org.hibernate.annotations.GenericGenerator;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -20,8 +23,9 @@ import jakarta.validation.constraints.NotNull;
 public class Telephone {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+    @GeneratedValue(generator = "uuid2")
+    @GenericGenerator(name = "uuid2", strategy = "org.hibernate.id.UUIDGenerator")
+	private UUID id;
 	
 	@NotEmpty(message = "number cannot be empty")
 	@Column(name = "number")
@@ -38,9 +42,9 @@ public class Telephone {
 
 	/**
 	 *  Returns the telephone id.
-	 * @return A long representing the telephone id.
+	 * @return A UUID representing the telephone id.
 	 */
-	public Long getId() {
+	public UUID getId() {
 		return id;
 	}
 
@@ -48,7 +52,7 @@ public class Telephone {
 	 * Sets the telephone id
 	 * @param id The telephone's unique identifier.
 	 */
-	public void setId(Long id) {
+	public void setId(UUID id) {
 		this.id = id;
 	}
 

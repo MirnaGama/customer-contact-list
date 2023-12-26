@@ -19,7 +19,8 @@ import com.mirna.customercontactlistapi.exceptions.EntityNotPresentException;
 import jakarta.validation.Valid;
 
 /**
- * 
+ * A Spring REST controller for managing telephones.
+ *
  * @author Mirna Gama
  * @version 1.0
  */
@@ -30,6 +31,15 @@ public class TelephoneController {
 	@Autowired
 	private TelephoneService telephoneService;
 	
+	/*
+	 * Post method to create a new Telephone object based on the provided DTO.
+	 *
+	 * @param telephoneDTO The data transfer object containing data for Telephone
+	 * entity.
+	 * 
+	 * @return A response entity containing the saved telephone if successful, or
+	 * a 400-level error if there is a validation error
+	 */
 	@RequestMapping(method = RequestMethod.POST)
 	public ResponseEntity<Object> addTelephone(@RequestBody @Valid TelephoneDTO telephoneDTO) {
 		

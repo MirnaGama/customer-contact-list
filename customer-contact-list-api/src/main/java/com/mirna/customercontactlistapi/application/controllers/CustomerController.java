@@ -26,7 +26,7 @@ public class CustomerController {
 	@Autowired
 	private CustomerService customerService;
 	
-	/*
+	/**
 	 * Post method to create a new Customer object based on the provided DTO.
 	 *
 	 * @param customerDTO The data transfer object containing data for Customer

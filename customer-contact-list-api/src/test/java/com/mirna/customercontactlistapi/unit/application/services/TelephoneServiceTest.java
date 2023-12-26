@@ -54,12 +54,6 @@ public class TelephoneServiceTest {
 		testCustomer.setStreet("Avenida Mutinga");
 
 		testCustomer = customerService.addCustomer(testCustomer);
-
-		testTelephone = new Telephone();
-		testTelephone.setNumber("(87) 3448-8423");
-		testTelephone.setCustomer(testCustomer);
-
-		testTelephone = telephoneService.addTelephone(testTelephone);
 	}
 
 	@AfterAll

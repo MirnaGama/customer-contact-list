@@ -48,7 +48,7 @@ public class TelephoneControllerTest {
 
 		String customerDTOContent = mapper.writeValueAsString(customerDTO);
 
-		MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post("/v1/customers").contentType(MediaType.APPLICATION_JSON)
+		MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post("/api/v1/customers").contentType(MediaType.APPLICATION_JSON)
 				.characterEncoding("UTF-8").content(customerDTOContent))
 				.andExpect(MockMvcResultMatchers.status().isOk()).andReturn();
 		
@@ -71,7 +71,7 @@ public class TelephoneControllerTest {
 		
 		String telephoneDTOContent = mapper.writeValueAsString(telephoneDTO);
 
-		mockMvc.perform(MockMvcRequestBuilders.post("/v1/telephones").contentType(MediaType.APPLICATION_JSON)
+		mockMvc.perform(MockMvcRequestBuilders.post("/api/v1/telephones").contentType(MediaType.APPLICATION_JSON)
 				.characterEncoding("UTF-8").content(telephoneDTOContent))
 				.andExpect(MockMvcResultMatchers.status().isOk()).andDo(MockMvcResultHandlers.print());
 	}
@@ -90,7 +90,7 @@ public class TelephoneControllerTest {
 		
 		String telephoneDTOContent = mapper.writeValueAsString(telephoneDTO);
 		
-		mockMvc.perform(MockMvcRequestBuilders.post("/v1/telephones").contentType(MediaType.APPLICATION_JSON)
+		mockMvc.perform(MockMvcRequestBuilders.post("/api/v1/telephones").contentType(MediaType.APPLICATION_JSON)
 				.characterEncoding("UTF-8").content(telephoneDTOContent))
 				.andExpect(MockMvcResultMatchers.status().isUnprocessableEntity()).andDo(MockMvcResultHandlers.print());
 	}
@@ -109,7 +109,7 @@ public class TelephoneControllerTest {
 		
 		String telephoneDTOContent = mapper.writeValueAsString(telephoneDTO);
 		
-		mockMvc.perform(MockMvcRequestBuilders.post("/v1/telephones").contentType(MediaType.APPLICATION_JSON)
+		mockMvc.perform(MockMvcRequestBuilders.post("/api/v1/telephones").contentType(MediaType.APPLICATION_JSON)
 				.characterEncoding("UTF-8").content(telephoneDTOContent))
 				.andExpect(MockMvcResultMatchers.status().isBadRequest()).andDo(MockMvcResultHandlers.print());
 	}
@@ -128,7 +128,7 @@ public class TelephoneControllerTest {
 		
 		String telephoneDTOContent = mapper.writeValueAsString(telephoneDTO);
 		
-		mockMvc.perform(MockMvcRequestBuilders.post("/v1/telephones").contentType(MediaType.APPLICATION_JSON)
+		mockMvc.perform(MockMvcRequestBuilders.post("/api/v1/telephones").contentType(MediaType.APPLICATION_JSON)
 				.characterEncoding("UTF-8").content(telephoneDTOContent))
 				.andExpect(MockMvcResultMatchers.status().isBadRequest()).andDo(MockMvcResultHandlers.print());
 	}

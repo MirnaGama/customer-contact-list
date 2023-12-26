@@ -25,7 +25,7 @@ import jakarta.validation.Valid;
  * @version 1.0
  */
 @RestController
-@RequestMapping("/v1/telephones")
+@RequestMapping("/api/v1/telephones")
 public class TelephoneController {
 	
 	@Autowired

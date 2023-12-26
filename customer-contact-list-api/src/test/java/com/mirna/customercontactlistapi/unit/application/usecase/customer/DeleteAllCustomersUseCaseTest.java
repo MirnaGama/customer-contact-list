@@ -1,0 +1,59 @@
+package com.mirna.customercontactlistapi.unit.application.usecase.customer;
+
+import static org.assertj.core.api.Assertions.assertThat;
+
+import java.util.List;
+
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
+import org.junit.jupiter.api.TestInstance.Lifecycle;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import com.mirna.customercontactlistapi.CustomerContactListApiApplication;
+import com.mirna.customercontactlistapi.application.usecase.customer.DeleteAllCustomersUseCase;
+import com.mirna.customercontactlistapi.domain.entities.Customer;
+import com.mirna.customercontactlistapi.repositories.CustomerRepository;
+
+@SpringBootTest(classes = CustomerContactListApiApplication.class)
+@TestInstance(Lifecycle.PER_CLASS)
+public class DeleteAllCustomersUseCaseTest {
+
+	@Autowired
+	private CustomerRepository customerRepository;
+	
+	@Autowired
+	private DeleteAllCustomersUseCase deleteAllCustomers;
+	
+	@BeforeAll
+	public void setup() {
+		Customer testCustomer = new Customer();
+		testCustomer.setCep("5110000");
+		testCustomer.setCity("São Paulo");
+		testCustomer.setFullname("Maria");
+		testCustomer.setHouseNumber(100L);
+		testCustomer.setNeighborhood("Jardim Santo Elias");
+		testCustomer.setState("SP");
+		testCustomer.setStreet("Avenida Mutinga");
+
+		testCustomer = customerRepository.save(testCustomer);
+	}
+	
+	/**
+	 * Execute delete method successfully
+	 * 
+	 * @result All customers will be deleted from the repository and the size of the fetched customer list afterwards will be zero
+	 */
+	@Test
+	@DisplayName("Should execute delete method")
+	public void testDeleteAllCustomers() throws Exception {
+		deleteAllCustomers.execute();
+		
+		List<Customer> customers = customerRepository.findAll();
+		
+		assertThat(customers.size()).isZero();
+	}
+	
+}

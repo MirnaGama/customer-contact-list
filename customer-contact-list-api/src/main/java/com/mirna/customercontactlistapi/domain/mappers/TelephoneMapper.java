@@ -29,6 +29,7 @@ public class TelephoneMapper {
 	 * 
 	 * @param telephoneDTO Data transfer object that will be converted
 	 * @return Mapped telephone entity
+	 * @throws EntityNotPresentException if customer related to telephone is not found
 	 */
     public Telephone toTelephoneEntity(TelephoneDTO telephoneDTO) throws EntityNotPresentException {
         Telephone telephone = new Telephone();

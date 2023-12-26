@@ -6,8 +6,8 @@ import org.springframework.stereotype.Component;
 import com.mirna.customercontactlistapi.domain.dto.TelephoneDTO;
 import com.mirna.customercontactlistapi.domain.entities.Customer;
 import com.mirna.customercontactlistapi.domain.entities.Telephone;
+import com.mirna.customercontactlistapi.domain.exceptions.EntityNotPresentException;
 import com.mirna.customercontactlistapi.domain.services.CustomerService;
-import com.mirna.customercontactlistapi.exceptions.EntityNotPresentException;
 
 /**
  * This mapper provides functionality for converting between Telephone entity

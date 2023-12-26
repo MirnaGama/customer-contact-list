@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.mirna.customercontactlistapi.domain.dto.TelephoneDTO;
 import com.mirna.customercontactlistapi.domain.entities.Telephone;
+import com.mirna.customercontactlistapi.domain.exceptions.EntityNotPresentException;
 import com.mirna.customercontactlistapi.domain.services.TelephoneService;
-import com.mirna.customercontactlistapi.exceptions.EntityNotPresentException;
 
 import jakarta.validation.Valid;
 

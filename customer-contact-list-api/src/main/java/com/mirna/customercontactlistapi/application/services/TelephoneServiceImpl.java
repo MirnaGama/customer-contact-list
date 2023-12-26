@@ -6,9 +6,9 @@ import org.springframework.stereotype.Service;
 import com.mirna.customercontactlistapi.application.usecase.telephone.AddTelephoneUseCase;
 import com.mirna.customercontactlistapi.domain.dto.TelephoneDTO;
 import com.mirna.customercontactlistapi.domain.entities.Telephone;
+import com.mirna.customercontactlistapi.domain.exceptions.EntityNotPresentException;
 import com.mirna.customercontactlistapi.domain.mappers.TelephoneMapper;
 import com.mirna.customercontactlistapi.domain.services.TelephoneService;
-import com.mirna.customercontactlistapi.exceptions.EntityNotPresentException;
 
 /**
  * This class is an implementation of the TelephoneService interface.

@@ -11,9 +11,9 @@ import com.mirna.customercontactlistapi.application.usecase.customer.FindAllCust
 import com.mirna.customercontactlistapi.application.usecase.customer.FindCustomerByIdUseCase;
 import com.mirna.customercontactlistapi.domain.dto.CustomerDTO;
 import com.mirna.customercontactlistapi.domain.entities.Customer;
+import com.mirna.customercontactlistapi.domain.exceptions.EntityNotPresentException;
 import com.mirna.customercontactlistapi.domain.mappers.CustomerMapper;
 import com.mirna.customercontactlistapi.domain.services.CustomerService;
-import com.mirna.customercontactlistapi.exceptions.EntityNotPresentException;
 
 /**
  * This class is an implementation of the CustomerService interface.

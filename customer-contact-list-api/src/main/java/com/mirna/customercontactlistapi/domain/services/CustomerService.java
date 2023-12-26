@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.mirna.customercontactlistapi.domain.dto.CustomerDTO;
 import com.mirna.customercontactlistapi.domain.entities.Customer;
-import com.mirna.customercontactlistapi.exceptions.EntityNotPresentException;
+import com.mirna.customercontactlistapi.domain.exceptions.EntityNotPresentException;
 
 /**
  * Customer service interface for managing customer information.

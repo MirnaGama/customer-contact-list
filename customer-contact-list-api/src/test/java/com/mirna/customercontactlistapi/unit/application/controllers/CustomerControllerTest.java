@@ -46,7 +46,7 @@ public class CustomerControllerTest {
 
 		String customerDTOContent = mapper.writeValueAsString(customerDTO);
 
-		mockMvc.perform(MockMvcRequestBuilders.post("/v1/customers").contentType(MediaType.APPLICATION_JSON)
+		mockMvc.perform(MockMvcRequestBuilders.post("/api/v1/customers").contentType(MediaType.APPLICATION_JSON)
 				.characterEncoding("UTF-8").content(customerDTOContent))
 				.andExpect(MockMvcResultMatchers.status().isOk()).andDo(MockMvcResultHandlers.print());
 	}

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.mirna.customercontactlistapi.application.usecase.customer.AddCustomerUseCase;
+import com.mirna.customercontactlistapi.application.usecase.customer.DeleteAllCustomersUseCase;
 import com.mirna.customercontactlistapi.application.usecase.customer.FindAllCustomersUseCase;
 import com.mirna.customercontactlistapi.application.usecase.customer.FindCustomerByIdUseCase;
 import com.mirna.customercontactlistapi.domain.dto.CustomerDTO;
@@ -34,6 +35,9 @@ public class CustomerServiceImpl implements CustomerService {
 
 	@Autowired
 	private FindAllCustomersUseCase findAllCustomers;
+	
+	@Autowired
+	private DeleteAllCustomersUseCase deleteAllCustomers;
 
 	@Autowired
 	private CustomerMapper customerMapper;
@@ -84,6 +88,15 @@ public class CustomerServiceImpl implements CustomerService {
 	@Override
 	public List<Customer> findAllCustomers() {
 		return findAllCustomers.execute();
+	}
+
+	/**
+	 * Deletes all customers from the database.
+	 *
+	 */
+	@Override
+	public void deleteAllCustomers() {
+		deleteAllCustomers.execute();
 	}
 
 }

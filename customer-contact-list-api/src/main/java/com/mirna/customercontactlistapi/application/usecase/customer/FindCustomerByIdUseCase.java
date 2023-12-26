@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.mirna.customercontactlistapi.domain.entities.Customer;
-import com.mirna.customercontactlistapi.exceptions.EntityNotPresentException;
+import com.mirna.customercontactlistapi.domain.exceptions.EntityNotPresentException;
 import com.mirna.customercontactlistapi.repositories.CustomerRepository;
 
 /**

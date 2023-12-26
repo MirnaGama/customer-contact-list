@@ -4,7 +4,7 @@ import org.springframework.stereotype.Service;
 
 import com.mirna.customercontactlistapi.domain.dto.TelephoneDTO;
 import com.mirna.customercontactlistapi.domain.entities.Telephone;
-import com.mirna.customercontactlistapi.exceptions.EntityNotPresentException;
+import com.mirna.customercontactlistapi.domain.exceptions.EntityNotPresentException;
 
 /**
  * Telephone service interface for managing telephone information.

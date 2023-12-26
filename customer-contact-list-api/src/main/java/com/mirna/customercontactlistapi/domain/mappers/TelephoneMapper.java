@@ -2,7 +2,6 @@ package com.mirna.customercontactlistapi.domain.mappers;
 
 import java.util.Optional;
 
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -19,18 +18,12 @@ import com.mirna.customercontactlistapi.repositories.CustomerRepository;
  */
 @Component
 public class TelephoneMapper {
-
-	private ModelMapper mapper;
 	
 	@Autowired
 	private CustomerRepository customerRepository;
-	 
-    public TelephoneMapper() {
-    	mapper =  new ModelMapper();
-    }
     
     public Telephone toTelephoneEntity(TelephoneDTO telephoneDTO) throws EntityNotPresentException {
-        Telephone telephone = mapper.map(telephoneDTO, Telephone.class);
+        Telephone telephone = new Telephone();
         
         Optional<Customer> customer = customerRepository.findById(telephoneDTO.getCustomerId());
         
@@ -39,13 +32,15 @@ public class TelephoneMapper {
         }
         
         telephone.setCustomer(customer.get());
+        telephone.setNumber(telephoneDTO.getNumber());
         return telephone;
     }
 
     public TelephoneDTO toTelephoneDTO(Telephone telephoneEntity) {
-    	TelephoneDTO telephoneDTO = mapper.map(telephoneEntity, TelephoneDTO.class);
+    	TelephoneDTO telephoneDTO = new TelephoneDTO();
     	
     	telephoneDTO.setCustomerId(telephoneEntity.getCustomer().getId());
+    	telephoneDTO.setNumber(telephoneEntity.getNumber());
     	return telephoneDTO;
     }
 }

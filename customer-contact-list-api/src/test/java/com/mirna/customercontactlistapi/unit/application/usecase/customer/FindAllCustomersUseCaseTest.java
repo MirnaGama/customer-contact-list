@@ -8,12 +8,18 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
+import org.junit.jupiter.api.TestInstance.Lifecycle;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 
+import com.mirna.customercontactlistapi.CustomerContactListApiApplication;
 import com.mirna.customercontactlistapi.application.usecase.customer.FindAllCustomersUseCase;
 import com.mirna.customercontactlistapi.domain.entities.Customer;
 import com.mirna.customercontactlistapi.domain.repositories.CustomerRepository;
 
+@SpringBootTest(classes = CustomerContactListApiApplication.class)
+@TestInstance(Lifecycle.PER_CLASS)
 public class FindAllCustomersUseCaseTest {
 
 	@Autowired

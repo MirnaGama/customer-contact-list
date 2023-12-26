@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.mirna.customercontactlistapi.application.usecase.telephone.AddTelephoneUseCase;
+import com.mirna.customercontactlistapi.application.usecase.telephone.DeleteAllTelephonesUseCase;
 import com.mirna.customercontactlistapi.domain.dto.TelephoneDTO;
 import com.mirna.customercontactlistapi.domain.entities.Telephone;
 import com.mirna.customercontactlistapi.domain.exceptions.EntityNotPresentException;
@@ -24,6 +25,9 @@ public class TelephoneServiceImpl implements TelephoneService {
 	@Autowired
 	private AddTelephoneUseCase addTelephone;
 
+	@Autowired
+	private DeleteAllTelephonesUseCase deleteAllTelephones;
+	
 	@Autowired
 	private TelephoneMapper telephoneMapper;
 
@@ -52,6 +56,15 @@ public class TelephoneServiceImpl implements TelephoneService {
 	@Override
 	public Telephone addTelephone(Telephone telephone) {
 		return addTelephone.execute(telephone);
+	}
+
+	/**
+	 * Deletes all telephones from the database.
+	 *
+	 */
+	@Override
+	public void deleteAllTelephones() {
+		deleteAllTelephones.execute();
 	}
 
 }

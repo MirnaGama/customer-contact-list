@@ -22,7 +22,7 @@ public interface TelephoneService {
 	 * @param telephoneDTO A data transfer object representing a telephone to add.
 	 * @return The saved telephone if successful, or throw an exception if customer
 	 *         id is not valid
-	 * @throws EntityNotFoundException if the related customer does not exist in the
+	 * @throws com.mirna.customercontactlistapi.domain.exceptions.EntityNotPresentException if the related customer does not exist in the
 	 *                                 database.
 	 */
 	public Telephone addTelephone(TelephoneDTO telephoneDTO) throws EntityNotPresentException;

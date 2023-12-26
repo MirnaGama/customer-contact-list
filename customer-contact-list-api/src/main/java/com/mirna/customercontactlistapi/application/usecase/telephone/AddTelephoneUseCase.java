@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.mirna.customercontactlistapi.domain.entities.Telephone;
-import com.mirna.customercontactlistapi.repositories.TelephoneRepository;
+import com.mirna.customercontactlistapi.domain.repositories.TelephoneRepository;
 
 /**
  * This class is used to execute the save method from telephone repository

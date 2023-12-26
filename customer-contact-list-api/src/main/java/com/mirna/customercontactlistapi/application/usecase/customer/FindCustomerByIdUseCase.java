@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 import com.mirna.customercontactlistapi.domain.entities.Customer;
 import com.mirna.customercontactlistapi.domain.exceptions.EntityNotPresentException;
-import com.mirna.customercontactlistapi.repositories.CustomerRepository;
+import com.mirna.customercontactlistapi.domain.repositories.CustomerRepository;
 
 /**
  * This class is used to execute the findById method from customer repository

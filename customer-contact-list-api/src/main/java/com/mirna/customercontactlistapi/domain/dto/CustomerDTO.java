@@ -1,5 +1,6 @@
 package com.mirna.customercontactlistapi.domain.dto;
 
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotEmpty;
 
 /**
@@ -18,7 +19,7 @@ public class CustomerDTO {
 	@NotEmpty(message = "fullname cannot be empty")
 	private String fullname;
 	
-	@NotEmpty(message = "houseNumber cannot be empty")
+	@Min(value = 1, message = "houseNumber must be greater than zero")
 	private Long houseNumber;
 	
 	@NotEmpty(message = "neighborhood cannot be empty")

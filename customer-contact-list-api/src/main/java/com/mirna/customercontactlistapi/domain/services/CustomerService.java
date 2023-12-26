@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.mirna.customercontactlistapi.domain.dto.CustomerDTO;
 import com.mirna.customercontactlistapi.domain.entities.Customer;
+import com.mirna.customercontactlistapi.exceptions.EntityNotPresentException;
 
 /**
  * Customer service interface for managing customer information.
@@ -38,10 +39,10 @@ public interface CustomerService {
 	 * Searches for a customer by id.
 	 * 
 	 * @param id The unique identifier of the customer to find.
-	 * @throws Exception If there is an error in finding the customer.
+	 * @throws EntityNotPresentException If there is an error in finding the customer.
 	 * @return The found customer.
 	 */
-    public Customer findCustomerById(UUID id) throws Exception;
+    public Customer findCustomerById(UUID id) throws EntityNotPresentException;
     
 	/**
 	 * Retrieves a list of all customers.

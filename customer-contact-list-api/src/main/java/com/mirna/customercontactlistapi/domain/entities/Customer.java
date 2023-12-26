@@ -1,15 +1,17 @@
 package com.mirna.customercontactlistapi.domain.entities;
 
 import java.util.List;
+import java.util.UUID;
+
+import org.hibernate.annotations.GenericGenerator;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.NotNull;
 
 /**
 * 
@@ -20,8 +22,9 @@ import jakarta.validation.constraints.NotNull;
 public class Customer {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+    @GeneratedValue(generator = "uuid2")
+    @GenericGenerator(name = "uuid2", strategy = "org.hibernate.id.UUIDGenerator")
+	private UUID id;
 
 	@NotEmpty(message = "cep cannot be empty")
 	@Column(name = "cep")
@@ -35,7 +38,7 @@ public class Customer {
 	@Column(name = "full_name")
 	private String fullname;
 
-	@NotEmpty(message = "houseNumber cannot be empty")
+	@Min(value = 1, message = "houseNumber must be greater than zero")
 	@Column(name = "house_number")
 	private Long houseNumber;
 
@@ -59,9 +62,9 @@ public class Customer {
 
 	/**
 	 *  Returns the customer id.
-	 * @return A long representing the customer id.
+	 * @return A UUID representing the customer id.
 	 */
-	public Long getId() {
+	public UUID getId() {
 		return id;
 	}
 
@@ -69,7 +72,7 @@ public class Customer {
 	 * Sets the customer id.
 	 * @param id The customer's unique identifier.
 	 */
-	public void setId(Long id) {
+	public void setId(UUID id) {
 		this.id = id;
 	}
 
@@ -131,7 +134,7 @@ public class Customer {
 
 	/**
 	 * Sets the house number
-	 * @param houseNumber The number of the house where the customer lives. Must not be empty.
+	 * @param houseNumber The number of the house where the customer lives. Must be greater than zero.
 	 */
 	public void setHouseNumber(Long houseNumber) {
 		this.houseNumber = houseNumber;
@@ -157,7 +160,7 @@ public class Customer {
 	  * Returns the state
 	 * @return A string representing the customer's state
 	 */
-	public String Returnstate() {
+	public String getState() {
 		return state;
 	}
 
@@ -173,7 +176,7 @@ public class Customer {
 	  * Returns the street
 	 * @return A string representing the customer's street
 	 */
-	public String Returnstreet() {
+	public String getStreet() {
 		return street;
 	}
 

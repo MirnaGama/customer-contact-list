@@ -1,5 +1,7 @@
 package com.mirna.customercontactlistapi.domain.dto;
 
+import java.util.UUID;
+
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 
@@ -13,8 +15,8 @@ public class TelephoneDTO {
 	@NotEmpty(message="number cannot be empty")
 	private String number; 
 	
-	@NotNull(message="customerId cannot be empty")
-    private Long customerId;
+	@NotNull(message="customerId cannot be null")
+	private UUID customerId;
     
 	/**
 	 *  Returns the telephone id
@@ -34,9 +36,9 @@ public class TelephoneDTO {
 	
 	/**
 	 *  Returns the telephone id
-	 * @return A long representing the customer id. Must not be null.
+	 * @return A UUID representing the customer id. Must not be null.
 	 */
-	public Long getCustomerId() {
+	public UUID getCustomerId() {
 		return customerId;
 	}
 	
@@ -44,7 +46,7 @@ public class TelephoneDTO {
 	 * Sets the customer id
 	 * @param customerId The customer's unique identifier related to the telephone
 	 */
-	public void setCustomerId(Long customerId) {
+	public void setCustomerId(UUID customerId) {
 		this.customerId = customerId;
 	}
     

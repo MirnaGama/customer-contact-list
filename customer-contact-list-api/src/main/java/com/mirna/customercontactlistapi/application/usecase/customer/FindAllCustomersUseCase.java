@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.mirna.customercontactlistapi.domain.entities.Customer;
-import com.mirna.customercontactlistapi.repositories.CustomerRepository;
+import com.mirna.customercontactlistapi.domain.repositories.CustomerRepository;
 
 /**
  * This class is used to execute the findAll method from customer repository

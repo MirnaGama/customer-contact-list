@@ -16,8 +16,8 @@ import com.mirna.customercontactlistapi.CustomerContactListApiApplication;
 import com.mirna.customercontactlistapi.application.usecase.telephone.DeleteAllTelephonesUseCase;
 import com.mirna.customercontactlistapi.domain.entities.Customer;
 import com.mirna.customercontactlistapi.domain.entities.Telephone;
-import com.mirna.customercontactlistapi.repositories.CustomerRepository;
-import com.mirna.customercontactlistapi.repositories.TelephoneRepository;
+import com.mirna.customercontactlistapi.domain.repositories.CustomerRepository;
+import com.mirna.customercontactlistapi.domain.repositories.TelephoneRepository;
 
 @SpringBootTest(classes = CustomerContactListApiApplication.class)
 @TestInstance(Lifecycle.PER_CLASS)

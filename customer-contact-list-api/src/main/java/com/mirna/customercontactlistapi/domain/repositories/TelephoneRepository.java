@@ -1,4 +1,4 @@
-package com.mirna.customercontactlistapi.repositories;
+package com.mirna.customercontactlistapi.domain.repositories;
 
 import java.util.UUID;
 

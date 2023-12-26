@@ -31,7 +31,7 @@ export class CustomerContactFormComponent {
   ngOnInit(): void {
     this.customerContactForm = this.formBuilder.group(
       {
-        fullname: ['', Validators.compose([Validators.required, Validators.minLength(10), Validators.pattern("/^[^a-zA-Z]*$/")])],
+        fullname: ['', Validators.compose([Validators.required, Validators.minLength(10), Validators.pattern("[a-zA-Z]+[ a-zA-Z]*")])],
         cep: ['', Validators.compose([Validators.required, Validators.minLength(8), Validators.maxLength(8)])],
         street: ['', [Validators.required]],
         houseNumber: ['', [Validators.required]],

@@ -20,7 +20,7 @@ import jakarta.validation.Valid;
  * @version 1.0
  */
 @RestController
-@RequestMapping("/api/v1/customers")
+@RequestMapping("/api/v1.0/customers")
 public class CustomerController {
 
 	@Autowired

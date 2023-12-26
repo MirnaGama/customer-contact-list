@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 /**
+ * This @RestControllerAdvice is used to handle validation errors and return appropriate response messages
  * 
  * @author Mirna Gama
  * @version 1.0

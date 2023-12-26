@@ -1,4 +1,4 @@
-package com.mirna.customercontactlistapi.exceptions;
+package com.mirna.customercontactlistapi.domain.exceptions;
 
 /**
  *  A custom exception class used to indicate that the specified entity cannot be found using the provided identifier.

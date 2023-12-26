@@ -12,6 +12,8 @@ import com.mirna.customercontactlistapi.exceptions.EntityNotPresentException;
 import com.mirna.customercontactlistapi.repositories.CustomerRepository;
 
 /**
+ * This mapper provides functionality for converting between Telephone entity
+ * class and matching data transfer objects
  * 
  * @author Mirna Gama
  * @version 1.0
@@ -22,6 +24,12 @@ public class TelephoneMapper {
 	@Autowired
 	private CustomerRepository customerRepository;
     
+	/**
+	 * Returns a entity object of type Telephone
+	 * 
+	 * @param telephoneDTO Data transfer object that will be converted
+	 * @return Mapped telephone entity
+	 */
     public Telephone toTelephoneEntity(TelephoneDTO telephoneDTO) throws EntityNotPresentException {
         Telephone telephone = new Telephone();
         
@@ -36,6 +44,12 @@ public class TelephoneMapper {
         return telephone;
     }
 
+    /**
+	 * Returns a data transfer object containing Telephone entity data
+	 * 
+	 * @param telephoneEntity Entity object that will be converted
+	 * @return Mapped telephone data transfer object
+	 */
     public TelephoneDTO toTelephoneDTO(Telephone telephoneEntity) {
     	TelephoneDTO telephoneDTO = new TelephoneDTO();
     	

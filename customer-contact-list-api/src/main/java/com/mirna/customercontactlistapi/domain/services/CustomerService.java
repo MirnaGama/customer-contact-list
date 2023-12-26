@@ -50,5 +50,11 @@ public interface CustomerService {
 	 * @return  A list containing all objects of type Customer in the repository
 	 */
     public List<Customer> findAllCustomers();
+    
+    /**
+	 * Deletes all customers stored in the repository
+	 * 
+	 */
+    public void deleteAllCustomers();
 
 }

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 import com.mirna.customercontactlistapi.domain.dto.TelephoneDTO;
 import com.mirna.customercontactlistapi.domain.entities.Customer;
 import com.mirna.customercontactlistapi.domain.entities.Telephone;
+import com.mirna.customercontactlistapi.exceptions.EntityNotPresentException;
 import com.mirna.customercontactlistapi.repositories.CustomerRepository;
 
 /**
@@ -28,13 +29,13 @@ public class TelephoneMapper {
     	mapper =  new ModelMapper();
     }
     
-    public Telephone toTelephoneEntity(TelephoneDTO telephoneDTO) {
+    public Telephone toTelephoneEntity(TelephoneDTO telephoneDTO) throws EntityNotPresentException {
         Telephone telephone = mapper.map(telephoneDTO, Telephone.class);
         
         Optional<Customer> customer = customerRepository.findById(telephoneDTO.getCustomerId());
         
         if (!customer.isPresent()) {
-        	// to-do: throw exception here
+        	throw new EntityNotPresentException("Cliente não existe");
         }
         
         telephone.setCustomer(customer.get());

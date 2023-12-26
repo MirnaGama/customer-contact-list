@@ -16,7 +16,10 @@ import com.mirna.customercontactlistapi.domain.services.CustomerService;
 import com.mirna.customercontactlistapi.exceptions.EntityNotPresentException;
 
 /**
- * 
+ * This class is an implementation of the CustomerService interface.
+ *
+ * This class provides methods to perform operations on customers
+ *
  * @author Mirna Gama
  * @version 1.0
  */
@@ -25,32 +28,59 @@ public class CustomerServiceImpl implements CustomerService {
 
 	@Autowired
 	private AddCustomerUseCase addCustomer;
-	
+
 	@Autowired
 	private FindCustomerByIdUseCase findCustomerById;
-	
+
 	@Autowired
 	private FindAllCustomersUseCase findAllCustomers;
-	
+
 	@Autowired
 	private CustomerMapper customerMapper;
-	
+
+	/**
+	 * Adds a new customer to the database.
+	 *
+	 * @param customerDTO A data transfer object containing the data for Customer
+	 *                    entity.
+	 * @return The saved customer if successful, or null if there is an error.
+	 */
 	@Override
 	public Customer addCustomer(CustomerDTO customerDTO) {
-		Customer customer = this.customerMapper.toCustomerEntity(customerDTO);	
+		Customer customer = this.customerMapper.toCustomerEntity(customerDTO);
 		return addCustomer.execute(customer);
 	}
 
+	/**
+	 * Adds a new customer to the database.
+	 *
+	 * @param customer a Customer entity representing the new customer record.
+	 * @return The saved customer if successful, or null if there is an error.
+	 */
 	@Override
 	public Customer addCustomer(Customer customer) {
 		return addCustomer.execute(customer);
 	}
-	
+
+	/**
+	 * Finds a customer from the database by ID.
+	 *
+	 * @param id The ID of the customer to be found.
+	 * @return the customer if it exists in the database, or throws an exception if
+	 *         it is not found.
+	 * @throws EntityNotFoundException if the customer does not exist in the
+	 *                                 database.
+	 */
 	@Override
 	public Customer findCustomerById(UUID id) throws EntityNotPresentException {
 		return findCustomerById.execute(id);
 	}
 
+	/**
+	 * Finds all customers from the database.
+	 *
+	 * @return A list containing all objects of type Customer in the database
+	 */
 	@Override
 	public List<Customer> findAllCustomers() {
 		return findAllCustomers.execute();

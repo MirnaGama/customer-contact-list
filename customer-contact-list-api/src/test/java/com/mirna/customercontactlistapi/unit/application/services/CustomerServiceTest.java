@@ -47,11 +47,6 @@ public class CustomerServiceTest {
         testCustomer = customerService.addCustomer(testCustomer);
     }
     
-    @AfterAll
-    public void terminate() {
-    	customerService.deleteAllCustomers();
-    }
-    
 	/**
 	 * Create a valid customer.
 	 * @result Customer will be persisted without any errors,

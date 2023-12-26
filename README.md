@@ -7,8 +7,8 @@ allow redundant data;
 - Validate whether a telephone number registered to a customer
 is already related to another.
 
-#### Back-end:
-- [ ] R2 - Add customer data:
+#### [API Module](https://github.com/MirnaGama/customer-contact-list/blob/R2-develop/customer-contact-list-api/README.md) - Back-end:
+- [X] R2 - Add customer data:
 - Validate whether the phone number is null;
 - Validate that the phone is in a valid format.
 

@@ -12,7 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.mirna.customercontactlistapi.application.usecase.customer.FindAllCustomersUseCase;
 import com.mirna.customercontactlistapi.domain.entities.Customer;
-import com.mirna.customercontactlistapi.repositories.CustomerRepository;
+import com.mirna.customercontactlistapi.domain.repositories.CustomerRepository;
 
 public class FindAllCustomersUseCaseTest {
 

@@ -13,7 +13,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import com.mirna.customercontactlistapi.CustomerContactListApiApplication;
 import com.mirna.customercontactlistapi.application.usecase.customer.AddCustomerUseCase;
 import com.mirna.customercontactlistapi.domain.entities.Customer;
-import com.mirna.customercontactlistapi.repositories.CustomerRepository;
+import com.mirna.customercontactlistapi.domain.repositories.CustomerRepository;
 
 @SpringBootTest(classes = CustomerContactListApiApplication.class)
 @TestInstance(Lifecycle.PER_CLASS)

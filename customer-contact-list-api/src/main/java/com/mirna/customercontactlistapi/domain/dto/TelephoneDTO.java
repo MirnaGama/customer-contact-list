@@ -2,8 +2,11 @@ package com.mirna.customercontactlistapi.domain.dto;
 
 import java.util.UUID;
 
+import com.mirna.customercontactlistapi.domain.entities.validation.TelephoneNumberRegex;
+
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 
 /**
 * 
@@ -13,6 +16,7 @@ import jakarta.validation.constraints.NotNull;
 public class TelephoneDTO {
 
 	@NotEmpty(message="number cannot be empty")
+	@Pattern(regexp=TelephoneNumberRegex.VALUE, message="invalid format for number")
 	private String number; 
 	
 	@NotNull(message="customerId cannot be null")

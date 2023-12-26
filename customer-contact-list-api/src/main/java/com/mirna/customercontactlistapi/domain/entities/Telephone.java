@@ -4,6 +4,8 @@ import java.util.UUID;
 
 import org.hibernate.annotations.GenericGenerator;
 
+import com.mirna.customercontactlistapi.domain.entities.validation.TelephoneNumberRegex;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -13,6 +15,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 
 /**
 * 
@@ -28,7 +31,8 @@ public class Telephone {
 	private UUID id;
 	
 	@NotEmpty(message = "number cannot be empty")
-	@Column(name = "number")
+	@Column(name = "number", unique = true)
+	@Pattern(regexp=TelephoneNumberRegex.VALUE, message="invalid format for number")
 	private String number;
 	
 	/** 

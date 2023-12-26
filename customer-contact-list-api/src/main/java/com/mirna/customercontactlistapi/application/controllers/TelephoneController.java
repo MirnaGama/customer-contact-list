@@ -31,7 +31,7 @@ public class TelephoneController {
 	@Autowired
 	private TelephoneService telephoneService;
 	
-	/*
+	/**
 	 * Post method to create a new Telephone object based on the provided DTO.
 	 *
 	 * @param telephoneDTO The data transfer object containing data for Telephone

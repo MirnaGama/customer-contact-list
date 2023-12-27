@@ -10,6 +10,7 @@ com.mirna.customercontactlistapi.domain.exceptions
 com.mirna.customercontactlistapi.domain.mappers
 com.mirna.customercontactlistapi.domain.repositories
 com.mirna.customercontactlistapi.domain.services
+com.mirna.customercontactlistapi.infra.config
 com.mirna.customercontactlistapi.infra.handlers.validation
 com.mirna.customercontactlistapi.unit.application.controllers
 com.mirna.customercontactlistapi.unit.application.services

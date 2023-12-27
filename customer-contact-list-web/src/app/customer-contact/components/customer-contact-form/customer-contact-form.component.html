@@ -36,7 +36,7 @@
       </div>
     </div>
 
-    <div class="col-md-6">
+    <div class="col-md-5">
     <div class="form-group">
       <label>Endereço</label>
       <input
@@ -93,6 +93,24 @@
       />
       <div *ngIf="submitted && f['city'].errors" class="invalid-feedback">
         <div *ngIf="f['city'].errors['required']">Preencha a cidade</div>
+      </div>
+
+   </div>
+
+
+  </div>
+
+  <div class="col-md-1">
+    <div class="form-group">
+      <label>Estado</label>
+      <input
+        type="text"
+        formControlName="state"
+        class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && f['state'].errors }"
+      />
+      <div *ngIf="submitted && f['state'].errors" class="invalid-feedback">
+        <div *ngIf="f['state'].errors['required']">Preencha o estado</div>
       </div>
 
    </div>

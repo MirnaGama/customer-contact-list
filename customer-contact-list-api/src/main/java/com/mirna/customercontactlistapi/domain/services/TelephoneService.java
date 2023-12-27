@@ -1,5 +1,7 @@
 package com.mirna.customercontactlistapi.domain.services;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.mirna.customercontactlistapi.domain.dto.TelephoneDTO;
@@ -35,6 +37,13 @@ public interface TelephoneService {
 	 */
 	public Telephone addTelephone(Telephone telephone);
 	
+	/**
+	 * Retrieves a list of all telephones.
+	 * 
+	 * @return  A list containing all objects of type Telephone in the repository
+	 */
+    public List<Telephone> findAllTelephones();
+    
 	/**
 	 * Deletes all telephones stored in the repository
 	 * 

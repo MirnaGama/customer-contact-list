@@ -28,31 +28,31 @@ public class Customer {
     @GenericGenerator(name = "uuid2", strategy = "org.hibernate.id.UUIDGenerator")
 	private UUID id;
 
-	@NotEmpty(message = "cep cannot be empty")
+	@NotEmpty(message = "cep não pode ser vazio")
 	@Column(name = "cep")
 	private String cep;
 
-	@NotEmpty(message = "city cannot be empty")
+	@NotEmpty(message = "cidade não pode ser vazia")
 	@Column(name = "city")
 	private String city;
 
-	@NotEmpty(message = "fullname cannot be empty")
+	@NotEmpty(message = "nome completo não pode ser vazio")
 	@Column(name = "full_name")
 	private String fullname;
 
-	@Min(value = 1, message = "houseNumber must be greater than zero")
+	@Min(value = 1, message = "número não pode ser vazio")
 	@Column(name = "house_number")
 	private Long houseNumber;
 
-	@NotEmpty(message = "neighborhood cannot be empty")
+	@NotEmpty(message = "bairro não pode ser vazio")
 	@Column(name = "neighborhood")
 	private String neighborhood;
 
-	@NotEmpty(message = "state cannot be empty")
+	@NotEmpty(message = "estado não pode ser vazio")
 	@Column(name = "state")
 	private String state;
 
-	@NotEmpty(message = "street cannot be empty")
+	@NotEmpty(message = "rua não pode ser vazia")
 	@Column(name = "street")
 	private String street;
 

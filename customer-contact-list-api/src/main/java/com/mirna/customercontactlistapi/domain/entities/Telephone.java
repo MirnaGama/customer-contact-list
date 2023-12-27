@@ -30,15 +30,15 @@ public class Telephone {
     @GenericGenerator(name = "uuid2", strategy = "org.hibernate.id.UUIDGenerator")
 	private UUID id;
 	
-	@NotEmpty(message = "number cannot be empty")
+	@NotEmpty(message = "número não pode ser vazio")
 	@Column(name = "number", unique = true)
-	@Pattern(regexp=TelephoneNumberRegex.VALUE, message="invalid format for number")
+	@Pattern(regexp=TelephoneNumberRegex.VALUE, message="formato de número de telefone invalido")
 	private String number;
 	
 	/** 
 	 * Represents the customer related to this telephone.
 	*/
-	@NotNull(message="customer cannot be null")
+	@NotNull(message="cliente não pode ser nulo")
 	@ManyToOne
 	@Valid
 	@JoinColumn(name = "customer_id")

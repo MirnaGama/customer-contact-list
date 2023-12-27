@@ -3,7 +3,9 @@
 This is API project built with Spring Boot 3.2.1 and JDK 17. The project uses Maven 4.0.0 as the build tool. The API provides two endpoints: "customers" and "telephones".
 
 ### Customers
-This endpoint is used to add customers to the database. To add a customer, make a POST request to **/api/v1.0/customers** with the customer data in the body. Example:
+This endpoint is used to add customers to the database. 
+
+- To add a customer, make a POST request to **/api/v1.0/customers** with the customer data in the body. Example:
 
  ```json
 {
@@ -18,8 +20,11 @@ This endpoint is used to add customers to the database. To add a customer, make 
 ```
 
 ### Telephones
-This endpoint is used to add telephones to customers in the database. To add a phone number to a customer, make a POST request to 
-**/api/v1.0/telephones** with the phone number and related customer id in the body. Example:
+This endpoint is used to add telephones to customers in the database. 
+
+- To get all phone numbers, make a GET request to **/api/v1.0/telephones**.
+
+- To add a phone number to a customer, make a POST request to **/api/v1.0/telephones** with the phone number and related customer id in the body. Example:
  
  ```json
 {

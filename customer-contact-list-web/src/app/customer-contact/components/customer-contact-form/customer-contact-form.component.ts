@@ -100,7 +100,8 @@ export class CustomerContactFormComponent {
 
   getDuplicatedTelephones(telephones: Telephone[], telephonesNumbersStored: string[]): string[] {
     const telephonesNumbers = telephones.map(telephone => telephone.number);
-    return telephonesNumbersStored.filter(telephone => telephonesNumbers.includes(telephone));
+
+    return telephonesNumbers.filter(telephone => telephonesNumbersStored.includes(String(telephone)));
   }
 
   insertCustomerContact(customerPayLoad: Customer) {

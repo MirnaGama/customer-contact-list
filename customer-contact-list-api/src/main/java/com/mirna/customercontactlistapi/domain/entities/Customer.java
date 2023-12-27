@@ -60,7 +60,6 @@ public class Customer {
 	 * Represents the customer’s telephones.
 	*/
 	@OneToMany(mappedBy="customer")
-	@JsonIgnore
 	private List<Telephone> telephones;
 
 	/**

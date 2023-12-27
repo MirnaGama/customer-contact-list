@@ -4,6 +4,8 @@ import java.util.UUID;
 
 import org.hibernate.annotations.GenericGenerator;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import com.mirna.customercontactlistapi.domain.entities.validation.TelephoneNumberRegex;
 
 import jakarta.persistence.Column;
@@ -42,6 +44,7 @@ public class Telephone {
 	@ManyToOne
 	@Valid
 	@JoinColumn(name = "customer_id")
+	@JsonIgnore
 	private Customer customer;
 
 	/**

@@ -132,4 +132,16 @@ public class TelephoneControllerTest {
 				.characterEncoding("UTF-8").content(telephoneDTOContent))
 				.andExpect(MockMvcResultMatchers.status().isBadRequest()).andDo(MockMvcResultHandlers.print());
 	}
+	
+	/**
+	 * Get a list of telephones.
+	 * @result A list of objects of type Telephone will be returned without any errors
+	 */
+	@Test
+	@DisplayName("Should get telephones list and return http status OK")
+	public void testGetTelephones() throws Exception {
+
+		mockMvc.perform(MockMvcRequestBuilders.get("/api/v1.0/telephones"))
+		.andExpect(MockMvcResultMatchers.status().isOk()).andDo(MockMvcResultHandlers.print());
+	}
 }

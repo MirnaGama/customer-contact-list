@@ -1,8 +1,10 @@
 package com.mirna.customercontactlistapi.unit.application.services;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+import java.util.List;
 import java.util.UUID;
 
 import org.junit.jupiter.api.AfterAll;
@@ -122,6 +124,20 @@ public class TelephoneServiceTest {
 		telephoneDTO.setCustomerId(testCustomer.getId());
 		
 		assertThrows(TransactionSystemException.class, () -> telephoneService.addTelephone(telephoneDTO));
+	}
+	
+	/**
+	 * Finds all telephones stored in the database
+	 * @result A list of objects of type Telephone will be returned without any errors,
+	 *         and the size of this list will be greater than zero
+	 */
+	@Test
+	@DisplayName("Should find all telephones")
+	public void testFindAllCustomers() throws Exception {
+		
+		List<Telephone> telephones = telephoneService.findAllTelephones();
+		
+		assertThat(telephones.size()).isNotZero();
 	}
 	
 }

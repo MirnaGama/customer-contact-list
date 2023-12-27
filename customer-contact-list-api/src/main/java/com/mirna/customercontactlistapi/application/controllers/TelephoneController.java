@@ -1,6 +1,7 @@
 package com.mirna.customercontactlistapi.application.controllers;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,6 +55,19 @@ public class TelephoneController {
 		}
 		
 		return ResponseEntity.ok(telephone);
+	}
+	
+	/**
+	 * Get method to receive a list of all objects of type Telephone stored in the database.
+	 * 
+	 * @return A response entity containing the list of telephones if successful, or
+	 * null if there is none
+	 */
+	@RequestMapping(method = RequestMethod.GET)
+	public ResponseEntity<Object> getAllTelephones() {
+		
+		List<Telephone> telephones = telephoneService.findAllTelephones();
+		return ResponseEntity.ok(telephones);
 	}
 	
     

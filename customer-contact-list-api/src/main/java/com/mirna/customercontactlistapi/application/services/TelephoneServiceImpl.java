@@ -1,10 +1,13 @@
 package com.mirna.customercontactlistapi.application.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.mirna.customercontactlistapi.application.usecase.telephone.AddTelephoneUseCase;
 import com.mirna.customercontactlistapi.application.usecase.telephone.DeleteAllTelephonesUseCase;
+import com.mirna.customercontactlistapi.application.usecase.telephone.FindAllTelephonesUseCase;
 import com.mirna.customercontactlistapi.domain.dto.TelephoneDTO;
 import com.mirna.customercontactlistapi.domain.entities.Telephone;
 import com.mirna.customercontactlistapi.domain.exceptions.EntityNotPresentException;
@@ -27,6 +30,9 @@ public class TelephoneServiceImpl implements TelephoneService {
 
 	@Autowired
 	private DeleteAllTelephonesUseCase deleteAllTelephones;
+	
+	@Autowired
+	private FindAllTelephonesUseCase findAllTelephones;
 	
 	@Autowired
 	private TelephoneMapper telephoneMapper;
@@ -65,6 +71,16 @@ public class TelephoneServiceImpl implements TelephoneService {
 	@Override
 	public void deleteAllTelephones() {
 		deleteAllTelephones.execute();
+	}
+
+	/**
+	 * Finds all telephones from the database.
+	 *
+	 * @return A list containing all objects of type Telephone in the database
+	 */
+	@Override
+	public List<Telephone> findAllTelephones() {
+		return findAllTelephones.execute();
 	}
 
 }
